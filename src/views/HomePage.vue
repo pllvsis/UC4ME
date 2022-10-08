@@ -1,17 +1,15 @@
 <template>
   <ion-page>
-    <ion-content class="ion-padding" :fullscreen="true">
-      <ion-title size="large">UC-4-ME</ion-title>
+    <ion-content :fullscreen="true">
+      <ion-grid class="ion-padding">
+        <ion-title aria-label="App name: You see for me"> UC-4-ME </ion-title>
 
-      <ion-grid class="ion-align-item-center">
         <ion-row class="ion-justify-content-evenly ion-padding">
-          <ion-button id="start-button">Start</ion-button>
+          <ion-button aria-label="Start navigation" id="start-button">Start</ion-button>
         </ion-row>
         <ion-row class="ion-justify-content-evenly ion-padding">
-          <ion-button id="routes-button">Routes</ion-button>
-        </ion-row>
-        <ion-row class="ion-justify-content-evenly ion-padding">
-          <ion-button id="navigator-button">Navigator</ion-button>
+          <ion-button class="ion-text-wrap" aria-label="View routes" id="routes-button">View Routes</ion-button>
+          <ion-button aria-label="Open navigator mode" id="navigator-button">Navigator Mode</ion-button>
         </ion-row>
       </ion-grid>
     </ion-content>
@@ -29,13 +27,19 @@ export default defineComponent({
 </script>
 
 <style>
+ion-grid {
+  height: 100%;
+  display: grid;
+}
+
 ion-title {
   text-align: center;
-  
+  font-size: 2em;
 }
 
 ion-button {
   font-size: 1.75em;
+  word-wrap: break-word;
 }
 
 ion-button#start-button {
@@ -46,7 +50,8 @@ ion-button#start-button {
 
 ion-button#routes-button,
 ion-button#navigator-button {
-  width: 90%;
-  height: 50px;
+  width: calc(100vw - 64px);
+  height: auto;
+  min-height: 50px;
 }
 </style>
