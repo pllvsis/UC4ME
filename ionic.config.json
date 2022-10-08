@@ -1,0 +1,7 @@
+{
+  "name": "UC4ME",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

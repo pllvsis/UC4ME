@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "UC4ME",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
