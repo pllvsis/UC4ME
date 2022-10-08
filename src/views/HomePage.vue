@@ -5,7 +5,7 @@
         <ion-title aria-label="App name: You see for me"> UC-4-ME </ion-title>
 
         <ion-row class="ion-justify-content-evenly ion-padding">
-          <ion-button aria-label="Start navigation" id="start-button">Start</ion-button>
+          <ion-button aria-label="Start navigation" id="start-button" href="/adventure">Start</ion-button>
         </ion-row>
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-button size="large" class="ion-text-wrap" aria-label="View routes" id="routes-button" href="/routes_list">View Routes</ion-button>
