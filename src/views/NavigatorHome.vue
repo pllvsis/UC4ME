@@ -21,7 +21,7 @@
         </ion-row>
 
         <ion-row class="ion-justify-content-evenly ion-padding">
-          <ion-button aria-label="Start recording" id="start-button"
+          <ion-button aria-label="Start recording" id="start-button" href="route_recorder"
             >Start Route</ion-button
           >
         </ion-row>

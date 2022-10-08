@@ -14,6 +14,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/navigator',
     component: () => import('@/views/NavigatorHome.vue')
+  },
+  {
+    path: '/route_recorder',
+    component: () => import('@/views/RouteRecorderPage.vue')
   }
 ]
 

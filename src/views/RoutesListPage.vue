@@ -23,7 +23,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
-import { identifier } from "@babel/types";
 
 export default defineComponent({
   name: "RoutesListPage",
@@ -33,24 +32,12 @@ export default defineComponent({
       routes: [
         { routeName: "Home" },
         { routeName: "Work" },
-        { routeName: "Campus"},
-        { routeName: "Buckeye Corner"},
-        { routeName: "Union Square"}
-    ],
+        { routeName: "Campus" },
+        { routeName: "Buckeye Corner" },
+        { routeName: "Union Square" },
+      ],
     };
   },
   methods: {},
 });
 </script>
-
-<style>
-#route-list li {
-  list-style: none;
-}
-
-ion-button {
-  font-size: 1.7em;
-  height: 120px;
-  width: 90%;
-}
-</style>

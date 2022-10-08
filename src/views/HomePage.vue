@@ -8,8 +8,8 @@
           <ion-button aria-label="Start navigation" id="start-button">Start</ion-button>
         </ion-row>
         <ion-row class="ion-justify-content-evenly ion-padding">
-          <ion-button class="ion-text-wrap" aria-label="View routes" id="routes-button" href="/routes_list">View Routes</ion-button>
-          <ion-button aria-label="Open navigator mode" id="navigator-button" href="/navigator">Navigator Mode</ion-button>
+          <ion-button size="large" class="ion-text-wrap" aria-label="View routes" id="routes-button" href="/routes_list">View Routes</ion-button>
+          <ion-button size="large" aria-label="Open navigator mode" id="navigator-button" href="/navigator">Navigator Mode</ion-button>
         </ion-row>
       </ion-grid>
     </ion-content>
