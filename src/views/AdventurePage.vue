@@ -32,8 +32,6 @@
 
 import { defineComponent } from "vue";
 import { IonPage, IonContent, IonCard, IonCardContent } from "@ionic/vue";
-import { getLocationPosition } from "./LocationData";
-import { setupConfig } from "@ionic/core";
 
 export default defineComponent({
     name: "AdventurePage",
@@ -43,11 +41,6 @@ export default defineComponent({
             variableSomething: ""
         }
     },
-    setup() {
-        getLocationPosition().then((locationData: any) => {
-            console.log(locationData)
-        });
-    }
 });
 </script>
 

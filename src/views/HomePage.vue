@@ -20,6 +20,7 @@
 import { defineComponent } from "vue";
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
 
+
 export default defineComponent({
   name: "HomePage",
   components: { IonContent, IonPage, IonButton },
