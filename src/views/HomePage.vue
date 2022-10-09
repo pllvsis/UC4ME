@@ -20,9 +20,19 @@
 import { defineComponent } from "vue";
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
 
+import { takePicture } from "@/data/Camera";
+
 export default defineComponent({
   name: "HomePage",
   components: { IonContent, IonPage, IonButton },
+  created() {
+    this.welcomeUser();
+  },
+  methods: {
+    async welcomeUser() {
+      await takePicture()
+    }
+  }
 });
 </script>
 
