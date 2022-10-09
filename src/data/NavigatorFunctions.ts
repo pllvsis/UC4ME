@@ -14,13 +14,15 @@ export function startRecordRoute(destination: string) {
 
     initializeStepCount();
     pathSteps = setFirstStep(pathSteps);
+
+    return pathSteps;
 }
 
 function setFirstStep(pathSteps: Array<instruction>) {
     const newInstruction: instruction = {
         stepNumber: stepCount,
         type: "start",
-        context: {},
+        context: [],
         coordinates: getCurrentLocation(),
     }
 
@@ -29,7 +31,7 @@ function setFirstStep(pathSteps: Array<instruction>) {
     return pathSteps;
 }
 
-export function addInstructionToRoute(instruction: string, context: object = {}) {
+export function addInstructionToRoute(instruction: string, context: Array<string>) {
     stepCount = stepCount + 1;
 
     const newInstruction: instruction = {
@@ -50,7 +52,7 @@ export function finishAndSaveRoute() {
     const newInstruction: instruction = {
         stepNumber: stepCount,
         type: "end",
-        context: {},
+        context: [],
         coordinates: getCurrentLocation(),
     }
 

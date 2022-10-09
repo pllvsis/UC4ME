@@ -9,24 +9,24 @@
       <ion-grid>
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('turn left', {})">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('turn left')">
               Turn Left
             </ion-button>
           </ion-col>
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('turn right', {})">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('turn right')">
               Turn Right
             </ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('step up', {})">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('step up')">
               Step Up
             </ion-button>
           </ion-col>
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('step down', {})">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('step down')">
               Step Down
             </ion-button>
           </ion-col>
@@ -37,6 +37,7 @@
               id="stairs-button"
               class="navigation-instruction-button"
               @click="openStairsModal"
+              @addContext="addContext"
             >
               Stairs
             </ion-button>
@@ -118,8 +119,11 @@ export default defineComponent({
   },
 
   methods: {
-    addInstruction(instructionString: string, context: object) {
+    addInstruction(instructionString: string, context: Array<string> = []) {
       console.log(addInstructionToRoute(instructionString, context));
+    },
+    addContext(context: Array<string> = []) {
+      console.log(context)
     }
   }
 
