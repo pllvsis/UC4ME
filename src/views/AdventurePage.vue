@@ -9,10 +9,10 @@
       <ion-grid>
         <ion-row class="ion-padding">
           <ion-item class="navigation-instruction-card">
-            <ion-label class="ion-text-wrap">Instruction</ion-label>
+            <ion-label class="ion-text-wrap">{{ nextStep }}</ion-label>
           </ion-item>
           <ion-item class="navigation-instruction-card">
-            <ion-label class="ion-text-wrap">Instruction</ion-label>
+            <ion-label class="ion-text-wrap">{{ nextNextStep }}</ion-label>
           </ion-item>
         </ion-row>
 
@@ -29,14 +29,34 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { IonPage, IonContent } from "@ionic/vue";
+import { getNextTwoSteps, startNavigation } from "@/data/AdventurerFunctions";
 
 export default defineComponent({
   name: "AdventurePage",
   components: { IonContent, IonPage },
   data() {
     return {
-      variableSomething: "",
+      routeData: {},
+      routeName: "HackOHIO",
+      stepCount: 0,
+      nextSteps: [""],
+      nextStep: "",
+      nextNextStep: "",
     };
+  },
+  mounted() {
+    this.startNavigation();
+  },
+  methods: {
+    async startNavigation() {
+      await startNavigation(this.routeName);
+      this.nextSteps = getNextTwoSteps();
+      this.updateNextSteps();
+    },
+    updateNextSteps() {
+      this.nextStep = this.nextSteps[0];
+      this.nextNextStep = this.nextSteps[1];
+    },
   },
 });
 </script>

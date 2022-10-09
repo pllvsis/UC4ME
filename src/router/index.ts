@@ -5,7 +5,11 @@ import HomePage from '../views/HomePage.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: "home",
+    component: HomePage,
+  },
+  {
+    path: '/home',
+    name: 'home',
     component: HomePage,
   },
   {

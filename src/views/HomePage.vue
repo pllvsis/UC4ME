@@ -19,20 +19,21 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
+import { createRouteList } from "@/data/Route";
 
-import { takePicture } from "@/data/Camera";
+// import { takePicture } from "@/data/Camera";
 
 export default defineComponent({
   name: "HomePage",
   components: { IonContent, IonPage, IonButton },
   created() {
-    this.welcomeUser();
+    createRouteList();
   },
-  methods: {
-    async welcomeUser() {
-      await takePicture()
+  data() {
+    return {
+      favouriteRoute: "HackOHIO"
     }
-  }
+  },
 });
 </script>
 

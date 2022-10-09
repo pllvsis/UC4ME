@@ -46,7 +46,7 @@ export function addInstructionToRoute(instruction: string, context = "") {
     return pathSteps;
 }
 
-export function finishAndSaveRoute() {
+export async function finishAndSaveRoute() {
     stepCount = stepCount + 1;
     
     const newInstruction: instruction = {
@@ -58,6 +58,6 @@ export function finishAndSaveRoute() {
 
     pathSteps.push(newInstruction);
 
-    addRouteToList(routeName, pathSteps);
+    await addRouteToList(routeName, pathSteps);
     pathSteps.length = 0;
 }
