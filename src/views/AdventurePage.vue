@@ -42,6 +42,11 @@ export default defineComponent({
 </script>
 
 <style>
+
+ion-title {
+  color: white;
+}
+
 .navigation-instruction-card {
   width: 100%;
   font-size: 1.75em;

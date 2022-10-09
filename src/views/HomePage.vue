@@ -45,6 +45,7 @@ ion-grid {
 ion-title {
   text-align: center;
   font-size: 2em;
+  color: black;
 }
 
 ion-button {
@@ -52,12 +53,14 @@ ion-button {
   word-wrap: break-word;
   width: 100%;
   min-height: 100px;
+  --background: white; 
 }
 
 ion-button.round-button {
   --border-radius: 100% !important;
   height: 300px;
   width: 300px;
+  --border-style: solid;
 }
 
 ion-button#routes-button,
@@ -65,5 +68,6 @@ ion-button#navigator-button {
   width: calc(100vw - 64px);
   height: auto;
   min-height: 50px;
+  border-style: solid;
 }
 </style>

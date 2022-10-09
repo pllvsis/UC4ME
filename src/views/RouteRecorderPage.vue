@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Route Recorder</ion-title>
+        <ion-title class="route-recorder-title">Route Recorder</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -173,4 +173,8 @@ export default defineComponent({
 .add-navigation-button {
   font-size: 1em;
 }
+ion-title {
+  color: white;
+}
+
 </style>

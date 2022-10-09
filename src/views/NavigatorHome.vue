@@ -65,3 +65,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+ion-title {
+  color: white;
+}
+</style>

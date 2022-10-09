@@ -1,24 +1,24 @@
 <template>
   <ion-page>
     <ion-content class="ion-padding" :fullscreen="true">
-      <ion-title size="large">Routes</ion-title>
 
       <ion-grid class="ion-align-item-center">
+        
+      <ion-title size="large">Routes</ion-title>
         <ion-list id="route-list">
-          <li v-for="route in routes" :key="route.routeName" class="route-item">
-            <ion-row class="ion-justify-content-evenly ion-padding">
-              <div class="button-container">
+            <li v-for="route in routes" :key="route.routeName" class="route-item" >
+            <div class="button-container">
+              <ion-row class="ion-justify-content-evenly ion-padding">
                 <ion-button class="route-button" href="/adventure">
                   <ion-label text-wrap>
                     {{ route.routeName }}
                   </ion-label>
                 </ion-button>
-              </div>
-            </ion-row>
-          </li>
+              </ion-row>
+            </div>
+        </li>
         </ion-list>
-      </ion-grid> </ion-content
-    >>
+      </ion-grid> </ion-content>
   </ion-page>
 </template>
 
@@ -34,7 +34,6 @@ export default defineComponent({
       routes: [
         { routeName: "★ Home" },
         { routeName: "Work" },
-        { routeName: "Campus" },
         { routeName: "Union Square" },
         { routeName: "HackOHIO" },
       ],
@@ -45,12 +44,13 @@ export default defineComponent({
 </script>
 
 <style>
+
 #route-list li {
   list-style: none;
 }
 ion-button {
   font-size: 1.7em;
-  height: 120px;
+  height: 100px;
   width: 275px;
 }
 
