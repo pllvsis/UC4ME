@@ -6,12 +6,15 @@
       <ion-grid class="ion-align-item-center">
         <ion-list id="route-list">
           <li v-for="route in routes" :key="route.routeName" class="route-item">
-            <ion-row class="ion-justify-content-evenly ion-padding text-wrap">
-              <ion-button class="route-button">
+            <ion-row class="ion-justify-content-evenly ion-padding">
+              <div class="button-container">
+                <ion-button class="route-button">
                 <ion-label text-wrap>
                   {{ route.routeName }}
                 </ion-label>
               </ion-button>
+              </div>
+              
             </ion-row>
           </li>
         </ion-list>
@@ -41,3 +44,20 @@ export default defineComponent({
   methods: {},
 });
 </script>
+
+<style>
+
+#route-list li {
+  list-style: none;
+}
+ion-button {
+  font-size: 1.7em;
+  height: 120px;
+  width: 275px;
+}
+
+button-container {
+  width: 90%;
+}
+
+</style>
