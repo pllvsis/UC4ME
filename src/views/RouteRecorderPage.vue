@@ -9,24 +9,24 @@
       <ion-grid>
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-col>
-            <ion-button class="navigation-instruction-button">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('turn left', {})">
               Turn Left
             </ion-button>
           </ion-col>
           <ion-col>
-            <ion-button class="navigation-instruction-button">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('turn right', {})">
               Turn Right
             </ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-col>
-            <ion-button class="navigation-instruction-button">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('step up', {})">
               Step Up
             </ion-button>
           </ion-col>
           <ion-col>
-            <ion-button class="navigation-instruction-button">
+            <ion-button class="navigation-instruction-button" @click="addInstruction('step down', {})">
               Step Down
             </ion-button>
           </ion-col>
@@ -86,6 +86,7 @@ import {
 import StairsModal from "./navigator-modals/StairsModal.vue";
 import DoorModal from "./navigator-modals/DoorModal.vue";
 import StreetModal from "./navigator-modals/StreetModal.vue";
+import {addInstructionToRoute} from '@/data/NavigatorFunctions'
 
 export default defineComponent({
   name: "RouteRecorderPage",
@@ -113,8 +114,15 @@ export default defineComponent({
       return modal.present();
     };
 
-    return { openStairsModal, openDoorModal, openStreetModal };
+    return { openStairsModal, openDoorModal,  openStreetModal};
   },
+
+  methods: {
+    addInstruction(instructionString: string, context: object) {
+      console.log(addInstructionToRoute(instructionString, context));
+    }
+  }
+
 });
 </script>
 
