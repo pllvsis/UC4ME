@@ -2,7 +2,7 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <ion-grid class="ion-padding">
-        <ion-title aria-label="App name: You see for me"> UC-4-ME </ion-title>
+        <ion-title aria-label="App name: You see for me" id="home-title"> UC-4-ME </ion-title>
 
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-button aria-label="Start navigation" class="round-button" href="/adventure">Start</ion-button>
@@ -20,6 +20,7 @@
 import { defineComponent } from "vue";
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
 import { createRouteList } from "@/data/Route";
+import { demo } from "@/data/TextToSpeech";
 
 // import { takePicture } from "@/data/Camera";
 
@@ -28,6 +29,7 @@ export default defineComponent({
   components: { IonContent, IonPage, IonButton },
   created() {
     createRouteList();
+    demo()
   },
   data() {
     return {
@@ -55,6 +57,10 @@ ion-button {
   width: 100%;
   min-height: 100px;
   --background: white; 
+}
+
+ion-title#home-title {
+  font-size: 3em;
 }
 
 ion-button.round-button {

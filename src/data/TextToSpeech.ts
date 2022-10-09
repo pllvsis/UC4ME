@@ -10,3 +10,15 @@ export async function speakInstruction(instruction: string) {
     category: 'ambient',
   });
 }
+
+export async function demo() {
+  speakInstruction("Turn left now")
+  await delay(1000);
+  speakInstruction("Stairs ahead")
+  await delay(1000);
+  speakInstruction("Stairs ascending 3 steps")
+}
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}
