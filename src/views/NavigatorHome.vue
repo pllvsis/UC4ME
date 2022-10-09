@@ -15,7 +15,8 @@
               placeholder="Work"
               clear-input
               autocapitalize="words"
-              autofocus="true"
+              :autofocus="true"
+              v-model="routeName"
             ></ion-input>
           </ion-item>
         </ion-row>
@@ -42,15 +43,25 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
+  IonInput,
 } from "@ionic/vue";
+import router from "@/router";
+import {startRecordRoute} from "@/data/NavigatorFunctions"
 
 export default defineComponent({
   name: "NavigatorHome",
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonInput },
   data() {
     return {
       routes: ["Work", "Home", "Buckeye Donuts", "Ohio Union"],
+      routeName: ""
     };
   },
+  methods: {
+    startRecordingRoute() {
+      startRecordRoute(this.routeName)
+      router.push("route_recorder")
+    }
+  }
 });
 </script>

@@ -3,6 +3,7 @@ import { instruction, addRouteToList } from "./Route"
 
 let stepCount: number;
 let routeName: string;
+let pathSteps: instruction[] = [];
 
 function initializeStepCount() {
     stepCount = 0;
@@ -10,13 +11,9 @@ function initializeStepCount() {
 
 export function startRecordRoute(destination: string) {
     routeName = destination;
-    
-    let pathSteps: instruction[] = [];
 
     initializeStepCount();
     pathSteps = setFirstStep(pathSteps);
-
-    return pathSteps;
 }
 
 function setFirstStep(pathSteps: Array<instruction>) {
@@ -32,7 +29,7 @@ function setFirstStep(pathSteps: Array<instruction>) {
     return pathSteps;
 }
 
-export function addInstructionToRoute(pathSteps: Array<instruction>, instruction: string, context: object = {}) {
+export function addInstructionToRoute(instruction: string, context: object = {}) {
     stepCount = stepCount + 1;
 
     const newInstruction: instruction = {
@@ -47,7 +44,7 @@ export function addInstructionToRoute(pathSteps: Array<instruction>, instruction
     return pathSteps;
 }
 
-export function finishAndSaveRoute(pathSteps: Array<instruction>) {
+export function finishAndSaveRoute() {
     stepCount = stepCount + 1;
     
     const newInstruction: instruction = {
@@ -60,4 +57,5 @@ export function finishAndSaveRoute(pathSteps: Array<instruction>) {
     pathSteps.push(newInstruction);
 
     addRouteToList(routeName, pathSteps);
+    pathSteps.length = 0;
 }

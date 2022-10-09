@@ -21,6 +21,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/route_recorder',
+    name: 'route_recorder',
     component: () => import('@/views/RouteRecorderPage.vue')
   }
 ]
