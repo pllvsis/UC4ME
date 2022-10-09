@@ -6,15 +6,17 @@
   </ion-header>
   <ion-content class="ion-padding">
     <ion-grid>
-      <ion-button @click="setStreetType('traffic from left side')"
-        >Traffic from Left</ion-button
-      >
-      <ion-button @click="setStreetType('traffic from right side')"
-        >Traffic from Right</ion-button
-      >
-      <ion-button @click="setStreetType('traffic from both sides')"
-        >Two Way Traffic</ion-button
-      >
+      <ion-row class="ion-padding">
+        <ion-button @click="setStreetType('traffic from left side')"
+          >Left Traffic</ion-button
+        >
+        <ion-button @click="setStreetType('traffic from right side')"
+          >Right Traffic</ion-button
+        >
+        <ion-button @click="setStreetType('traffic from both sides')"
+          >Two Way</ion-button
+        >
+      </ion-row>
 
       <ion-row class="ion-justify-content-evenly ion-padding">
         <ion-button ion-button @click="closeModal">Cancel</ion-button>
