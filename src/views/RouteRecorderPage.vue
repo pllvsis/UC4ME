@@ -9,24 +9,36 @@
       <ion-grid>
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('turn left')">
+            <ion-button
+              class="navigation-instruction-button"
+              @click="setInstruction('turn left')"
+            >
               Turn Left
             </ion-button>
           </ion-col>
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('turn right')">
+            <ion-button
+              class="navigation-instruction-button"
+              @click="setInstruction('turn right')"
+            >
               Turn Right
             </ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('step up')">
+            <ion-button
+              class="navigation-instruction-button"
+              @click="setInstruction('step up')"
+            >
               Step Up
             </ion-button>
           </ion-col>
           <ion-col>
-            <ion-button class="navigation-instruction-button" @click="addInstruction('step down')">
+            <ion-button
+              class="navigation-instruction-button"
+              @click="setInstruction('step down')"
+            >
               Step Down
             </ion-button>
           </ion-col>
@@ -36,7 +48,7 @@
             <ion-button
               id="stairs-button"
               class="navigation-instruction-button"
-              @click="openStairsModal"
+              @click="setInstructionAndModal('stairs')"
               @addContext="addContext"
             >
               Stairs
@@ -87,7 +99,7 @@ import {
 import StairsModal from "./navigator-modals/StairsModal.vue";
 import DoorModal from "./navigator-modals/DoorModal.vue";
 import StreetModal from "./navigator-modals/StreetModal.vue";
-import {addInstructionToRoute} from '@/data/NavigatorFunctions'
+import { addInstructionToRoute } from "@/data/NavigatorFunctions";
 
 export default defineComponent({
   name: "RouteRecorderPage",
@@ -96,8 +108,9 @@ export default defineComponent({
   setup() {
     const openStairsModal = async () => {
       const modal = await modalController.create({
-        component: StairsModal, //Modal is name of the component to render inside ionic modal
+        component: StairsModal,
       });
+
       return modal.present();
     };
 
@@ -115,18 +128,32 @@ export default defineComponent({
       return modal.present();
     };
 
-    return { openStairsModal, openDoorModal,  openStreetModal};
+    return { openStairsModal, openDoorModal, openStreetModal };
+  },
+
+  data() {
+    return {
+      instruction: "",
+      context: "",
+    };
   },
 
   methods: {
+    setInstruction(instructionString: string) {
+      this.instruction = instructionString;
+      console.log(instructionString)
+    },
+    setInstructionAndModal(instructionString: string) {
+      this.setInstruction(instructionString);
+      this.openStairsModal();
+    },
     addInstruction(instructionString: string, context: Array<string> = []) {
       console.log(addInstructionToRoute(instructionString, context));
     },
-    addContext(context: Array<string> = []) {
-      console.log(context)
-    }
-  }
-
+    addContext(context: string) {
+      console.log(context);
+    },
+  },
 });
 </script>
 
