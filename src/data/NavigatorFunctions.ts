@@ -22,7 +22,7 @@ function setFirstStep(pathSteps: Array<instruction>) {
     const newInstruction: instruction = {
         stepNumber: stepCount,
         type: "start",
-        context: [],
+        context: "",
         coordinates: getCurrentLocation(),
     }
 
@@ -31,7 +31,7 @@ function setFirstStep(pathSteps: Array<instruction>) {
     return pathSteps;
 }
 
-export function addInstructionToRoute(instruction: string, context: Array<string>) {
+export function addInstructionToRoute(instruction: string, context = "") {
     stepCount = stepCount + 1;
 
     const newInstruction: instruction = {
@@ -52,7 +52,7 @@ export function finishAndSaveRoute() {
     const newInstruction: instruction = {
         stepNumber: stepCount,
         type: "end",
-        context: [],
+        context: "",
         coordinates: getCurrentLocation(),
     }
 

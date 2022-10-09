@@ -48,8 +48,7 @@
             <ion-button
               id="stairs-button"
               class="navigation-instruction-button"
-              @click="setInstructionAndModal('stairs')"
-              @addContext="addContext"
+              @click="openStairsModal"
             >
               Stairs
             </ion-button>
@@ -78,6 +77,7 @@
         <ion-row>
           <ion-button
             class="ion-justify-content-evenly ion-padding add-navigation-button"
+            @click="addInstruction"
           >
             Add
           </ion-button>
@@ -130,28 +130,19 @@ export default defineComponent({
 
     return { openStairsModal, openDoorModal, openStreetModal };
   },
-
   data() {
     return {
       instruction: "",
       context: "",
     };
   },
-
   methods: {
     setInstruction(instructionString: string) {
       this.instruction = instructionString;
-      console.log(instructionString)
+      console.log(instructionString);
     },
-    setInstructionAndModal(instructionString: string) {
-      this.setInstruction(instructionString);
-      this.openStairsModal();
-    },
-    addInstruction(instructionString: string, context: Array<string> = []) {
-      console.log(addInstructionToRoute(instructionString, context));
-    },
-    addContext(context: string) {
-      console.log(context);
+    addInstruction() {
+      console.log(addInstructionToRoute(this.instruction));
     },
   },
 });

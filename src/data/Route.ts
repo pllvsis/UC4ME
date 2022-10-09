@@ -1,7 +1,7 @@
 export interface instruction {
     stepNumber: number;
     type: string;
-    context: Array<string>;
+    context: string;
     coordinates: object
 }
 
