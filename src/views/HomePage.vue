@@ -20,7 +20,6 @@
 import { defineComponent } from "vue";
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
 
-
 export default defineComponent({
   name: "HomePage",
   components: { IonContent, IonPage, IonButton },
@@ -41,6 +40,8 @@ ion-title {
 ion-button {
   font-size: 1.75em;
   word-wrap: break-word;
+  width: 100%;
+  min-height: 100px;
 }
 
 ion-button#start-button {
