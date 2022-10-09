@@ -6,13 +6,24 @@
   </ion-header>
   <ion-content class="ion-padding">
     <ion-grid>
-      <ion-button @click="setStreetType('traffic from left side')">Traffic from Left</ion-button>
-      <ion-button @click="setStreetType('traffic from right side')">Traffic from Right</ion-button>
-      <ion-button @click="setStreetType('traffic from both sides')">Two Way Traffic</ion-button>
+      <ion-button @click="setStreetType('traffic from left side')"
+        >Traffic from Left</ion-button
+      >
+      <ion-button @click="setStreetType('traffic from right side')"
+        >Traffic from Right</ion-button
+      >
+      <ion-button @click="setStreetType('traffic from both sides')"
+        >Two Way Traffic</ion-button
+      >
 
       <ion-row class="ion-justify-content-evenly ion-padding">
         <ion-button ion-button @click="closeModal">Cancel</ion-button>
-        <ion-button ion-button @click="createFinalInstruction">Add</ion-button>
+        <ion-button
+          ion-button
+          @click="createFinalInstruction"
+          :disabled="!optionSelected"
+          >Add</ion-button
+        >
       </ion-row>
     </ion-grid>
   </ion-content>
@@ -37,6 +48,7 @@ export default defineComponent({
       streetType: "",
       instruction: "Street crossing",
       context: "",
+      optionSelected: false,
     };
   },
   setup() {
@@ -49,13 +61,18 @@ export default defineComponent({
   methods: {
     setStreetType(streetType: string) {
       this.streetType = streetType;
+      this.optionSelected = true;
     },
     createFinalInstruction() {
-      this.context = this.streetType;
-      this.addInstruction();
-      this.closeModal();
+      if (this.optionSelected) {
+        this.context = this.streetType;
+        this.addInstruction();
+        this.closeModal();
+      }
     },
     addInstruction() {
+      this.optionSelected = false;
+      this.context = "";
       console.log(addInstructionToRoute(this.instruction, this.context));
     },
   },

@@ -78,6 +78,7 @@
           <ion-button
             class="ion-justify-content-evenly ion-padding add-navigation-button"
             @click="addInstruction"
+            :disabled="!optionSelected"
           >
             Add
           </ion-button>
@@ -134,15 +135,19 @@ export default defineComponent({
     return {
       instruction: "",
       context: "",
+      optionSelected: false,
     };
   },
   methods: {
     setInstruction(instructionString: string) {
       this.instruction = instructionString;
-      console.log(instructionString);
+      this.optionSelected = true;
     },
     addInstruction() {
-      console.log(addInstructionToRoute(this.instruction));
+      if (this.optionSelected) {
+        this.optionSelected = false;
+        this.instruction = "";
+      }
     },
   },
 });

@@ -22,6 +22,7 @@
             autocapitalize="words"
             :autofocus="true"
             v-model="stairsCount"
+            value="10"
           >
           </ion-input>
         </ion-item>
@@ -32,7 +33,10 @@
           <ion-button ion-button @click="closeModal">Cancel</ion-button>
         </ion-col>
         <ion-col col-6 ion-no-padding>
-          <ion-button ion-button @click="createFinalInstruction"
+          <ion-button
+            ion-button
+            @click="createFinalInstruction"
+            :disabled="!optionSelected"
             >Add</ion-button
           >
         </ion-col>
@@ -59,9 +63,10 @@ export default defineComponent({
   data() {
     return {
       instruction: "Stairs",
-      stairsCount: 0,
+      stairsCount: 10,
       direction: "",
       context: "",
+      optionSelected: false,
     };
   },
   setup() {
@@ -74,14 +79,19 @@ export default defineComponent({
   methods: {
     setDirection(direction: string) {
       this.direction = direction;
+      this.optionSelected = true;
     },
     createFinalInstruction() {
-      this.context =
-        this.direction + " with " + this.stairsCount.toString() + " steps";
-      this.addInstruction();
-      this.closeModal();
+      if (this.optionSelected) {
+        this.context =
+          this.direction + " with " + this.stairsCount.toString() + " steps";
+        this.addInstruction();
+        this.closeModal();
+      }
     },
     addInstruction() {
+      this.optionSelected = false;
+      this.context = "";
       console.log(addInstructionToRoute(this.instruction, this.context));
     },
   },

@@ -27,13 +27,19 @@
       <ion-row class="ion-justify-content-evenly no-padding">
         <ion-col col-6 ion-no-padding>
           <ion-label wrap-text>
-            <ion-button class="navigation-instruction-button" @click="setHandleType('handle on the left')">
+            <ion-button
+              class="navigation-instruction-button"
+              @click="setHandleType('handle on the left')"
+            >
               Handle on Left
             </ion-button>
           </ion-label>
         </ion-col>
         <ion-col col-6 ion-no-padding>
-          <ion-button class="navigation-instruction-button" @click="setHandleType('handle on the right')">
+          <ion-button
+            class="navigation-instruction-button"
+            @click="setHandleType('handle on the right')"
+          >
             Handle on Right
           </ion-button>
         </ion-col>
@@ -43,7 +49,10 @@
           <ion-button ion-button @click="closeModal">Cancel</ion-button>
         </ion-col>
         <ion-col col-6 ion-no-padding>
-          <ion-button ion-button @click="createFinalInstruction"
+          <ion-button
+            ion-button
+            @click="createFinalInstruction"
+            :disabled="!optionSelected"
             >Add</ion-button
           >
         </ion-col>
@@ -72,6 +81,7 @@ export default defineComponent({
       handleType: "",
       instruction: "Door",
       context: "",
+      optionSelected: false,
     };
   },
   setup() {
@@ -84,16 +94,26 @@ export default defineComponent({
   methods: {
     setDoorDirection(doorType: string) {
       this.doorType = doorType;
+      if (this.handleType !== "") {
+        this.optionSelected = true;
+      }
     },
     setHandleType(handleType: string) {
       this.handleType = handleType;
+      if (this.doorType !== "") {
+        this.optionSelected = true;
+      }
     },
     createFinalInstruction() {
-      this.context = this.doorType + " with handle on " + this.handleType;
-      this.addInstruction();
-      this.closeModal();
+      if (this.optionSelected) {
+        this.context = this.doorType + " with handle on " + this.handleType;
+        this.addInstruction();
+        this.closeModal();
+      }
     },
     addInstruction() {
+      this.optionSelected = false;
+      this.context = "";
       console.log(addInstructionToRoute(this.instruction, this.context));
     },
   },
