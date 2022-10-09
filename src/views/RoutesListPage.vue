@@ -8,13 +8,12 @@
           <li v-for="route in routes" :key="route.routeName" class="route-item">
             <ion-row class="ion-justify-content-evenly ion-padding">
               <div class="button-container">
-                <ion-button class="route-button">
-                <ion-label text-wrap>
-                  {{ route.routeName }}
-                </ion-label>
-              </ion-button>
+                <ion-button class="route-button" href="/adventure">
+                  <ion-label text-wrap>
+                    {{ route.routeName }}
+                  </ion-label>
+                </ion-button>
               </div>
-              
             </ion-row>
           </li>
         </ion-list>
@@ -33,11 +32,11 @@ export default defineComponent({
   data() {
     return {
       routes: [
-        { routeName: "Home" },
+        { routeName: "★ Home" },
         { routeName: "Work" },
         { routeName: "Campus" },
-        { routeName: "Buckeye Corner" },
         { routeName: "Union Square" },
+        { routeName: "HackOHIO" },
       ],
     };
   },
@@ -46,7 +45,6 @@ export default defineComponent({
 </script>
 
 <style>
-
 #route-list li {
   list-style: none;
 }
@@ -59,5 +57,4 @@ ion-button {
 button-container {
   width: 90%;
 }
-
 </style>

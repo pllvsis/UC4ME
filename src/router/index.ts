@@ -5,14 +5,17 @@ import HomePage from '../views/HomePage.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    name: "home",
     component: HomePage,
   },
   {
     path: '/adventure',
+    name: 'adventure',
     component: () => import('@/views/AdventurePage.vue')
   },
   {
     path: '/routes_list',
+    name: 'routes_list',
     component: () => import('@/views/RoutesListPage.vue')
   },
   {

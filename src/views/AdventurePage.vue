@@ -17,10 +17,7 @@
         </ion-row>
 
         <ion-row class="ion-justify-content-evenly ion-padding">
-          <ion-button
-            aria-label="Start navigation"
-            id="start-button"
-            href="/adventure"
+          <ion-button aria-label="Stop navigation" class="round-button" href="/"
             >Exit Navigation
           </ion-button>
         </ion-row>

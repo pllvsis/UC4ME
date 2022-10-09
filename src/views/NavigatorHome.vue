@@ -24,7 +24,7 @@
         <ion-row class="ion-justify-content-evenly ion-padding">
           <ion-button
             aria-label="Start recording"
-            id="start-button"
+            class="round-button"
             @click="startRecordingRoute"
           >
             <ion-label text-wrap>Start Recording Route</ion-label>
@@ -61,7 +61,7 @@ export default defineComponent({
     startRecordingRoute() {
       console.log(startRecordRoute(this.routeName))
       router.push("route_recorder")
-    }
+    },
   }
 });
 </script>

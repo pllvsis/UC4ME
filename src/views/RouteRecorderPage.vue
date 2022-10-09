@@ -83,6 +83,15 @@
             Add
           </ion-button>
         </ion-row>
+
+        <ion-row>
+          <ion-button
+            class="ion-justify-content-evenly ion-padding"
+            href="/"
+          >
+            End Recording
+          </ion-button>
+        </ion-row>
       </ion-grid>
     </ion-content>
   </ion-page>
@@ -100,7 +109,8 @@ import {
 import StairsModal from "./navigator-modals/StairsModal.vue";
 import DoorModal from "./navigator-modals/DoorModal.vue";
 import StreetModal from "./navigator-modals/StreetModal.vue";
-import { addInstructionToRoute } from "@/data/NavigatorFunctions";
+import { addInstructionToRoute, finishAndSaveRoute } from "@/data/NavigatorFunctions";
+import router from "@/router";
 
 export default defineComponent({
   name: "RouteRecorderPage",
@@ -147,8 +157,13 @@ export default defineComponent({
       if (this.optionSelected) {
         this.optionSelected = false;
         this.instruction = "";
+        console.log(addInstructionToRoute(this.instruction, this.context));
       }
     },
+    endRecording() {
+      finishAndSaveRoute();
+      router.push("home");
+    }
   },
 });
 </script>
